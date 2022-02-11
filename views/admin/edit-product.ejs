@@ -1,0 +1,81 @@
+<%- include('../includes/header.ejs') %>
+
+<body>
+  <%- include('../includes/navbar.ejs') %>
+
+  <form class="form-horizontal" method="POST" action="/admin/edit-products">
+    <fieldset>
+
+      <!-- Form Name -->
+
+
+      <!-- Text input-->
+      <div class="form-group text-center">
+        <h3>  Edit Products</h3>
+
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="title">PRODUCT NAME</label>
+        <div class="col-md-4">
+          <input id="title" name="title" placeholder="PRODUCT NAME" class="form-control input-md" required=""
+            type="text" value="<%= details.title %>">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="desc">PRODUCT DESCRIPTION FR</label>
+        <div class="col-md-4">
+          <input type="text" id="desc" name="desc" placeholder="PRODUCT DESCRIPTION FR" class="form-control input-md"
+          value="<%= details.description %>"            required="">
+
+        </div>
+      </div>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="desc">Price</label>
+            <div class="col-md-4">
+              <input type="text" id="price" name="price" placeholder="Price" class="form-control input-md"
+                required="" value="<%= details.price %>">
+    
+            </div>
+          </div>
+                   <!-- Text input-->
+                   <div class="form-group">
+                    <label class="col-md-4 control-label" for="desc">Discount%</label>
+                    <div class="col-md-4">
+                      <input type="text" id="dis" name="dis" placeholder="dis" class="form-control input-md"
+                        required="" value="<%= details.discount %>">
+            
+                    </div>
+                  </div>
+             <!-- Text input-->
+             <div class="form-group">
+               <div class="text-center m-5 ">
+                <img   src="<%= details.image %>" alt="<%= details.title %>"  width="400" height="200">
+               </div>
+              <label class="col-md-4 control-label" for="desc">Image</label>
+              <div class="col-md-4">
+                <input type="text" id="image" name="image" placeholder="Image" class="form-control input-md"
+                  required="" value="<%= details.image %>">
+      
+              </div>
+              <input type="hidden" id="id" name="id" value="<%= details.id %>">
+            </div>
+
+
+
+      <!-- Button -->
+      <div class="form-group">
+        <div class="col-md-12 text-center">
+          <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary"> Edit</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+  <%- include('../includes/footer.ejs') %>

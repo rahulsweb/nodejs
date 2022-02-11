@@ -1,0 +1,60 @@
+<!-- Header-->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="discountplay-4 fw-bolder">Shop in style</h1>
+            <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+        </div>
+    </div>
+</header>
+<!-- Section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div>
+            <%  if(products.length > 0)  {%>
+            <% for(let product of products) { %>
+            <div class="col-md-3 ">
+                 
+                <div class="">
+
+                    <div class="">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; left: 0.5rem">offer
+                            <%= product.discount %>% </div>
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+                            <%= product.title %></div>
+                    </div>
+                    <!-- Product image-->
+                  <a href="/details/<%= product.id %>"><img class="card-img-top" src="<%= product.image %>" alt="<%= product.title %>" width="100"
+                    height="250" /></a>  
+                    <!-- Product details-->
+                    <div class="card-body  p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder  text-info"><%= product.title %></h5>
+                            <!-- Product price-->
+                            <span class="text-muted text-decoration-line-through">$<%= product.price %></span>
+                            $<%= product.price-(product.price/product.discount) %>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                        <div class="inline-flex">
+                            <a class="cart btn btn-outline-dark m-2" href="/details/<%= product.id %>">Product Details</a>
+                           
+                            <%- include('../includes/add-to-cart.ejs') %>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <% } %>
+            <% } else { %>
+            <h1>No Books Availabel</h1>
+            <% } %>
+        </div>
+
+    </div>
+</section>
